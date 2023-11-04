@@ -35,7 +35,7 @@ function draw(){
 }
 `.trim();
 
-const editorOptions = {
+const editorOptions: monaco.editor.IStandaloneEditorConstructionOptions = {
 	value: editorCode,
 	language: "javascript",
 	theme: "vs",
@@ -46,7 +46,9 @@ const editorOptions = {
 	roundedSelection: false,
 	scrollBeyondLastLine: false,
 	automaticLayout: true,
-	cursorStyle: "text",
+	cursorStyle: "block",
+	cursorBlinking: "blink",
+
 	minimap: {
 		enabled: true,
 	},
