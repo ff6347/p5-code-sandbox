@@ -1,5 +1,5 @@
 {
-	"name": "-p5-sandbox",
+	"name": "@ff6347/p5-code-sandbox",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
@@ -9,6 +9,7 @@
 		"preview": "vite preview"
 	},
 	"devDependencies": {
+		"@technologiestiftung/semantic-release-config": "1.2.4",
 		"@types/node": "20.8.10",
 		"typescript": "5.0.2",
 		"vite": "4.4.5",

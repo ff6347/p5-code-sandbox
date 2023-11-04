@@ -1,0 +1,38 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests
+name: Node.js CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    env:
+      CI: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js from .nvmrc
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm run test  --if-present
+  release:
+    name: semantic-release
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - run: |
+          npm ci
+          npx semantic-release --ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
