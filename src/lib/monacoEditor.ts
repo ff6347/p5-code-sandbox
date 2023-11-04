@@ -82,18 +82,7 @@ monaco.languages.typescript.javascriptDefaults.addExtraLib(
 	index,
 	"@types/p5/index.d.ts",
 );
-// monaco.editor.createModel(
-// 	globals,
-// 	"typescript",
-// 	monaco.Uri.parse("file:///globals.d.ts"),
-// );
-
+//TODO: Add sound add on
 const monacoEditor = monaco.editor.create(elements.editor, editorOptions);
-
-// Keybindings for macOS in Firefox
-monacoEditor.onKeyDown((e) => {
-	console.log(e); // Log the event to see if it's captured
-	// Your custom handler logic...
-});
 
 export { monacoEditor as default };
