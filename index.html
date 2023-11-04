@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <div class="loading" data-loading>
+      <div class="loader"></div>
+      <h1>Loading Sandbox</h1>
+    </div>
+    <section class="code">
+      <div class="editor" data-editor></div>
+    </section>
+
+    <!-- <section class="code">
+      <textarea class="editor" spellcheck="false" data-editor></textarea>
+    </section> -->
+
+    <section class="result">
+      <div class="output">
+        <iframe data-iframe></iframe>
+        <div class="errors" data-errors></div>
+      </div>
+      <!-- <div class="source" data-source></div> -->
+    </section>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
