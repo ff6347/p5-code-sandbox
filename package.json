@@ -9,8 +9,10 @@
 		"preview": "vite preview"
 	},
 	"devDependencies": {
+		"@napi-rs/magic-string": "0.3.4",
 		"@technologiestiftung/semantic-release-config": "1.2.4",
 		"@types/node": "20.8.10",
+		"esbuild": "0.19.5",
 		"typescript": "5.0.2",
 		"vite": "4.4.5",
 		"vite-plugin-monaco-editor": "1.1.0",
