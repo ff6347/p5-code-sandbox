@@ -1,0 +1,28 @@
+{
+  "name": "astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "0.3.1",
+    "@astrojs/react": "3.0.4",
+    "@monaco-editor/react": "4.6.0",
+    "@types/p5": "1.7.2",
+    "@types/react": "18.2.35",
+    "@types/react-dom": "18.2.14",
+    "astro": "^3.4.3",
+    "monaco-editor": "0.44.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "vite-plugin-monaco-editor": "1.1.0"
+  }
+}
