@@ -1,8 +1,8 @@
 {
 	"name": "@ff6347/p5-sandbox",
 	"private": true,
+	"version": "1.0.0",
 	"type": "module",
-	"version": "0.0.1",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
