@@ -33,7 +33,7 @@ export default function Sandbox(props: SandboxProps) {
 						<html>
 						<head>
 								<link rel="stylesheet" href="/iframe.css">
-								<script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+								<script src="${import.meta.env.PUBLIC_BASE_URL}/lib/p5.js"></script>
 				<style>
 				body {
 					font-family: "Inter", sans-serif;
