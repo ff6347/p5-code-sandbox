@@ -30,6 +30,8 @@ export default function Sandbox(props: SandboxProps) {
 				<html>
 					<head>
 						<link rel="stylesheet" href="/iframe.css">
+						<script src="${import.meta.env.PUBLIC_BASE_URL}/lib/p5.js"></script>
+
 						<style>
 				body {
 					font-family: "Inter", sans-serif;
@@ -111,10 +113,10 @@ export default function Sandbox(props: SandboxProps) {
 	}
 	return (
 		<div className="sandbox">
-			<div className="loading" data-loading>
+			{/* <div className="loading" data-loading>
 				<div className="loader"></div>
 				<h1>Loading P5.js Sandbox</h1>
-			</div>
+			</div> */}
 			<section className="code">
 				<Editor
 					height="100vh"
