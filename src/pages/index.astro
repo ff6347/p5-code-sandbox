@@ -9,15 +9,17 @@ import Sandbox from "../components/Sandbox.tsx";
 			title="Draft"
 			description="draft"
 			initialCode={`
-
+//@ts-check
 function setup(){
 	const canvas = createCanvas(100,100);
 	canvas.parent("sketch");
 	background(0);
 }
-
-function draw(){}
-
+function draw(){
+	circle((1/sqrt(random())*50) - width/2,
+	random(height),
+	random(4))
+}
 `}
 			client:only
 		/>
