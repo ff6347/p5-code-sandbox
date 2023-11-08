@@ -1,5 +1,7 @@
-import "./sandox.css";
+import debounce from "lodash.debounce";
 import React from "react";
+import "./sandox.css";
+
 import Editor from "@monaco-editor/react";
 //@ts-ignore
 import globals from "@types/p5/global.d.ts?raw";
@@ -12,29 +14,23 @@ interface SandboxProps {
 	description: string;
 	initialCode: string;
 }
-export function debounce(callback: () => void, delay = 500): () => void {
-	let timerId: NodeJS.Timeout;
-
-	return () => {
-		clearTimeout(timerId);
-		timerId = setTimeout(callback, delay);
-	};
-}
 
 export default function Sandbox(props: SandboxProps) {
 	const iframeRef = React.useRef(null);
 	const [code, setCode] = React.useState(props.initialCode);
+	const debouncedSetCode = debounce((value) => setCode(value), 500);
+
 	React.useEffect(() => {
 		console.log("code changed");
 		if (iframeRef.current) {
 			const iframe = iframeRef.current;
 
 			const source = /* html */ `
-						<html>
-						<head>
-								<link rel="stylesheet" href="/iframe.css">
-								<script src="${import.meta.env.PUBLIC_BASE_URL}/lib/p5.js"></script>
-				<style>
+			<!DOCTYPE html>
+				<html>
+					<head>
+						<link rel="stylesheet" href="/iframe.css">
+						<style>
 				body {
 					font-family: "Inter", sans-serif;
 					overflow: hidden;
@@ -69,7 +65,8 @@ export default function Sandbox(props: SandboxProps) {
 		}
 	}, [code]);
 	const handleEditorChange = (value, event) => {
-		setCode(value);
+		debouncedSetCode(value);
+
 		// here is the current value
 		// debounce(() => setCode((prev) => value));
 	};
@@ -114,10 +111,10 @@ export default function Sandbox(props: SandboxProps) {
 	}
 	return (
 		<div className="sandbox">
-			{/* <div className="loading" data-loading>
+			<div className="loading" data-loading>
 				<div className="loader"></div>
 				<h1>Loading P5.js Sandbox</h1>
-			</div> */}
+			</div>
 			<section className="code">
 				<Editor
 					height="100vh"
