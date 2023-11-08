@@ -1,24 +1,37 @@
 {
-	"name": "@ff6347/p5-code-sandbox",
+	"name": "@ff6347/p5-sandbox",
 	"private": true,
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "tsc && vite build",
-		"preview": "vite preview"
-	},
-	"devDependencies": {
-		"@napi-rs/magic-string": "0.3.4",
-		"@technologiestiftung/semantic-release-config": "1.2.4",
-		"@types/node": "20.8.10",
-		"esbuild": "0.19.5",
-		"typescript": "5.0.2",
-		"vite": "4.4.5",
-		"vite-plugin-monaco-editor": "1.1.0",
-		"vite-plugin-plain-text": "1.4.2"
+		"copy:p5": "mkdirp ./public/lib && shx cp -r ./node_modules/p5/lib ./public/",
+		"dev": "export PUBLIC_BASE_URL=$DEPLOY_URL && astro dev",
+		"start": "export PUBLIC_BASE_URL=$DEPLOY_URL && astro dev",
+		"prebuild": "npm run copy:p5",
+		"postinstall": "npm run copy:p5",
+		"build": "export PUBLIC_BASE_URL=$DEPLOY_URL && astro build",
+		"check": "astro check",
+		"preview": "astro preview",
+		"astro": "astro"
 	},
 	"dependencies": {
-		"@types/p5": "1.7.1"
+		"@astrojs/check": "0.3.1",
+		"@astrojs/netlify": "3.0.4",
+		"@astrojs/react": "3.0.4",
+		"@monaco-editor/react": "4.6.0",
+		"@types/p5": "1.7.2",
+		"@types/react": "18.2.35",
+		"@types/react-dom": "18.2.14",
+		"astro": "3.4.3",
+		"p5": "1.8.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"typescript": "5.2.2"
+	},
+	"devDependencies": {
+		"@technologiestiftung/semantic-release-config": "1.2.4",
+		"mkdirp": "3.0.1",
+		"netlify-cli": "17.1.0",
+		"shx": "0.3.4"
 	}
 }

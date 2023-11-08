@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Sandbox from "../components/Sandbox.tsx";
+---
+
+<Layout title="P5js sandbox">
+	<main>
+		<Sandbox
+			title="Draft"
+			description="draft"
+			initialCode={`
+
+function setup(){
+	const canvas = createCanvas(100,100);
+	canvas.parent("sketch");
+	background(0);
+}
+
+function draw(){}
+
+`}
+			client:only
+		/>
+	</main>
+</Layout>
+
+<style></style>
