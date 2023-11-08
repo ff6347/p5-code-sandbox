@@ -23,6 +23,7 @@
 		"@types/react": "18.2.35",
 		"@types/react-dom": "18.2.14",
 		"astro": "3.4.3",
+		"lodash.debounce": "4.0.8",
 		"p5": "1.8.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
@@ -30,6 +31,7 @@
 	},
 	"devDependencies": {
 		"@technologiestiftung/semantic-release-config": "1.2.4",
+		"@types/lodash.debounce": "4.0.9",
 		"mkdirp": "3.0.1",
 		"netlify-cli": "17.1.0",
 		"shx": "0.3.4"
