@@ -60,7 +60,6 @@ export default function Sandbox(props: SandboxProps) {
 				iframeParent.removeChild(iframe);
 				const blob = new Blob([source], { type: "text/html" });
 				const blobUrl = URL.createObjectURL(blob);
-
 				iframe.src = blobUrl;
 				iframeParent.appendChild(iframe);
 			}
@@ -68,7 +67,6 @@ export default function Sandbox(props: SandboxProps) {
 	}, [code]);
 	const handleEditorChange = (value, event) => {
 		debouncedSetCode(value);
-
 		// here is the current value
 		// debounce(() => setCode((prev) => value));
 	};
@@ -80,7 +78,9 @@ export default function Sandbox(props: SandboxProps) {
 
 	const handleEditorWillMount = (monaco) => {
 		monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions({
+			...monaco.languages.typescript.javascriptDefaults.getDiagnosticsOptions(),
 			noSemanticValidation: true,
+			noSuggestionDiagnostics: false,
 			noSyntaxValidation: false,
 		});
 
@@ -104,6 +104,10 @@ export default function Sandbox(props: SandboxProps) {
 			index,
 			"@types/p5/index.d.ts",
 		);
+		monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
+			...monaco.languages.typescript.javascriptDefaults.getCompilerOptions(),
+			checkJs: true, // need this
+		});
 		// console.log("beforeMount: the monaco instance:", monaco);
 	};
 
