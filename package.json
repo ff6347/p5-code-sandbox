@@ -17,7 +17,6 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "0.3.1",
-		"@astrojs/netlify": "3.0.4",
 		"@astrojs/react": "3.0.4",
 		"@monaco-editor/react": "4.6.0",
 		"@types/p5": "1.7.2",
