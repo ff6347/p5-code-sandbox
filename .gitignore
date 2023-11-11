@@ -122,3 +122,8 @@ dist/
 # logs
 
 # macOS-specific files
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+tests-examples/demo-todo-app.spec.ts
