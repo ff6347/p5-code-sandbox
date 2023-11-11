@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/ff6347/p5-code-sandbox/compare/v1.1.1...v1.2.0) (2023-11-11)
+
+
+### Bug Fixes
+
+* Add missing types ([d2f8d86](https://github.com/ff6347/p5-code-sandbox/commit/d2f8d86de0f1ddb199f8ab9f1f3aaf65703be31a))
+
+
+### Features
+
+* **storage:** Save code in local storage ([ba296fd](https://github.com/ff6347/p5-code-sandbox/commit/ba296fd39068f10f3de9fc672d1552a69bc3504a))
+
 ## [1.1.1](https://github.com/ff6347/p5-code-sandbox/compare/v1.1.0...v1.1.1) (2023-11-11)
 
 
