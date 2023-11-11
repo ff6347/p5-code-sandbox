@@ -9,51 +9,35 @@ import globals from "@types/p5/global.d.ts?raw";
 import constants from "@types/p5/constants.d.ts?raw";
 //@ts-ignore
 import index from "@types/p5/index.d.ts?raw";
+//@ts-ignore
+import literals from "@types/p5/literals.d.ts?raw";
+//@ts-ignore
+import sound from "@types/p5/lib/addons/p5.sound.d.ts?raw";
+import { useLocalStorage } from "../hooks/use-local-storage";
+import { iframeSource } from "../lib/iframe-source";
 interface SandboxProps {
 	title: string;
 	description: string;
 	initialCode: string;
+	disableStorage: boolean;
 }
 
-export default function Sandbox(props: SandboxProps) {
+export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 	const iframeRef = React.useRef(null);
-	const [code, setCode] = React.useState(props.initialCode);
+
+	const [code, setCode] = useLocalStorage(
+		"p5.inpayjamas.dev",
+		initialCode,
+		disableStorage,
+	);
+
 	const debouncedSetCode = debounce((value) => setCode(value), 500);
 
 	React.useEffect(() => {
-		console.log("code changed");
 		if (iframeRef.current) {
 			const iframe = iframeRef.current;
 
-			const source = /* html */ `
-			<!DOCTYPE html>
-				<html>
-					<head>
-						<link rel="stylesheet" href="/iframe.css">
-						<script src="${import.meta.env.PUBLIC_BASE_URL}/lib/p5.js"></script>
-
-						<style>
-				body {
-					font-family: "Inter", sans-serif;
-					overflow: hidden;
-				}
-				body {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					height: 100vh;
-					/* remove default padding */
-					padding: 0;
-					/* remove default margins */
-					margin: 0 auto;
-				}</style>
-						</head>
-						<body>
-								<div id="sketch"></div>
-								<script defer>${code}</script>
-						</body>
-						</html>
-				`;
+			const source = iframeSource(code);
 			const iframeParent = iframe.parentElement;
 
 			if (iframeParent) {
@@ -99,10 +83,18 @@ export default function Sandbox(props: SandboxProps) {
 			constants,
 			"@types/p5/constants.d.ts",
 		);
+		monaco.languages.typescript.javascriptDefaults.addExtraLib(
+			literals,
+			"@types/p5/literals.d.ts",
+		);
 
 		monaco.languages.typescript.javascriptDefaults.addExtraLib(
 			index,
 			"@types/p5/index.d.ts",
+		);
+		monaco.languages.typescript.javascriptDefaults.addExtraLib(
+			sound,
+			"@types/p5/lib/addons/p5.sound.d.ts",
 		);
 		monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
 			...monaco.languages.typescript.javascriptDefaults.getCompilerOptions(),
@@ -144,7 +136,7 @@ export default function Sandbox(props: SandboxProps) {
 						tabSize: 2,
 						accessibilitySupport: "on",
 					}}
-					defaultValue={props.initialCode}
+					defaultValue={code}
 					onChange={handleEditorChange}
 					onMount={handleEditorDidMount}
 					beforeMount={handleEditorWillMount}
