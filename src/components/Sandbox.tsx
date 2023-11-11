@@ -13,11 +13,18 @@ interface SandboxProps {
 	title: string;
 	description: string;
 	initialCode: string;
+	disableStorage: boolean;
 }
 
-export default function Sandbox(props: SandboxProps) {
+export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 	const iframeRef = React.useRef(null);
-	const [code, setCode] = React.useState(props.initialCode);
+
+	const [code, setCode] = useLocalStorage(
+		"p5.inpayjamas.dev",
+		initialCode,
+		disableStorage,
+	);
+
 	const debouncedSetCode = debounce((value) => setCode(value), 500);
 
 	React.useEffect(() => {
@@ -144,7 +151,7 @@ export default function Sandbox(props: SandboxProps) {
 						tabSize: 2,
 						accessibilitySupport: "on",
 					}}
-					defaultValue={props.initialCode}
+					defaultValue={code}
 					onChange={handleEditorChange}
 					onMount={handleEditorDidMount}
 					beforeMount={handleEditorWillMount}
