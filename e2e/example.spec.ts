@@ -15,7 +15,7 @@ test("basic screenshot", async ({ page }) => {
 
 	const viewport = await page.viewportSize();
 	await page.screenshot({
-		path: "screenshot.png",
+		path: "e2e/screenshots/basic-screenshot.png",
 		clip: {
 			x: 0,
 			y: 0,
