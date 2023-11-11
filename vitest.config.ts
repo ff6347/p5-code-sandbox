@@ -3,6 +3,7 @@ import { getViteConfig } from "astro/config";
 
 export default getViteConfig({
 	test: {
+		environment: "jsdom",
 		exclude: [
 			"**/e2e/**",
 			"**/tests-examples/**",

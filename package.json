@@ -33,8 +33,10 @@
 	"devDependencies": {
 		"@playwright/test": "1.39.0",
 		"@technologiestiftung/semantic-release-config": "1.2.4",
+		"@testing-library/react": "14.1.0",
 		"@types/lodash.debounce": "4.0.9",
 		"@types/node": "20.9.0",
+		"jsdom": "22.1.0",
 		"mkdirp": "3.0.1",
 		"netlify-cli": "17.1.0",
 		"shx": "0.3.4",
