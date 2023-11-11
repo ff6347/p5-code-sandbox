@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@400;700&display=swap");
-
 :root {
 	--font-size: 1rem;
 	--spacing: 2rem;
-	--sans-serif: "Inter", sans-serif;
-	--mono: "IBM Plex Mono", monospace;
+	--sans-serif: system-ui, sans-serif;
+	--mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+		"DejaVu Sans Mono", monospace;
+	font-weight: normal;
 	--fadeIn: fadeIn 0.3s ease;
 }
 
