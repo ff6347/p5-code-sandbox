@@ -4,6 +4,15 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Small experiment to have a code sandbox for testing p5.js code. Based on [this blog](https://joyofcode.xyz/create-a-coding-sandbox) post "Create a JavaScript Code Sandbox" by Matija.
+The idea is to be able to build a documentation page for sketches produced during seminars, like in my seminar [gestalten-in-code](https://interface.fh-potsdam.de/gestalten-in-code/) but have all the sketches editable in the sandbox.
+
+Current feature set is limited but it can:
+
+- Save changes to local storage
+- Control via component prop if changes should be saved to local storage
+- Control via URL SearchParameters if the local storage should be disabled
+
+See [@ff6347 p5js code sandbox project for planned features](https://github.com/users/ff6347/projects/2/views/1)
 
 ## Development
 
@@ -22,13 +31,20 @@ Inside of your Astro project, you'll see the following folders and files:
 │   └── favicon.svg
 ├── src/
 │   ├── components/
-│   │   └── Card.astro
+│   │   └── sandbox.css // the components css
+│   │   └── Sandbox.tsx // the component to load in pages
+│   ├── hooks/
+│   │   └── local-storage.ts // the local storage customHook
+│   ├── hooks/
+│   │   └── iframe-source.ts // the html for the iframe
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
 │       └── index.astro
 └── package.json
 ```
+
+## Astro Docs
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
