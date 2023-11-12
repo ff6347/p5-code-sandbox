@@ -1,7 +1,7 @@
 # P5 Code Sandbox
 
 Small experiment to have a code sandbox for testing p5.js code. Based on [this blog](https://joyofcode.xyz/create-a-coding-sandbox) post "Create a JavaScript Code Sandbox" by Matija.
-The idea is to be able to build a documentation page for sketches produced during seminars, like in my seminar [gestalten-in-code](https://interface.fh-potsdam.de/gestalten-in-code/) but have all the sketchs editable in the sandbox.
+The idea is to be able to build a documentation page for sketches produced during seminars, like in my seminar [gestalten-in-code](https://interface.fh-potsdam.de/gestalten-in-code/) but have all the sketches editable in the sandbox.
 
 Current feature set is limited but it can:
 
