@@ -1,0 +1,29 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "ff6347",
+      "name": "Fabian Morón Zirfas",
+      "avatar_url": "https://avatars.githubusercontent.com/u/315106?v=4",
+      "profile": "https://fabianmoronzirfas.me",
+      "contributions": [
+        "code",
+        "design",
+        "ideas",
+        "infra"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "p5-code-sandbox",
+  "projectOwner": "ff6347"
+}
