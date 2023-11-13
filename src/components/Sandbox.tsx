@@ -1,8 +1,8 @@
+import Editor from "@monaco-editor/react";
 import debounce from "lodash.debounce";
 import React from "react";
 import "./sandox.css";
-
-import Editor from "@monaco-editor/react";
+import "./cmdk-raycast.css";
 //@ts-ignore
 import globals from "@types/p5/global.d.ts?raw";
 //@ts-ignore
@@ -15,6 +15,7 @@ import literals from "@types/p5/literals.d.ts?raw";
 import sound from "@types/p5/lib/addons/p5.sound.d.ts?raw";
 import { useLocalStorage } from "../hooks/use-local-storage";
 import { iframeSource } from "../lib/iframe-source";
+import { RaycastCMDK } from "./CmdK";
 interface SandboxProps {
 	title: string;
 	description: string;
@@ -30,9 +31,24 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 		initialCode,
 		disableStorage,
 	);
+	const [paletteIsOpen, setPaletteIsOpen] = React.useState(true);
 
 	const debouncedSetCode = debounce((value) => setCode(value), 500);
+	// Toggle the menu when ⌘K is pressed
+	// React.useEffect(() => {
+	// 	const down = (e) => {
+	// 		console.log("down", e, e.key, e.metaKey, e.ctrlKey);
+	// 		if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+	// 			e.preventDefault();
+	// 			console.log("down cmd k", e, e.key, e.metaKey, e.ctrlKey);
 
+	// 			setPaletteIsOpen((open) => !open);
+	// 		}
+	// 	};
+
+	// 	document.addEventListener("keydown", down);
+	// 	return () => document.removeEventListener("keydown", down);
+	// }, []);
 	React.useEffect(() => {
 		if (iframeRef.current) {
 			const iframe = iframeRef.current;
@@ -49,108 +65,123 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 			}
 		}
 	}, [code]);
-	const handleEditorChange = (value, event) => {
-		debouncedSetCode(value);
-		// here is the current value
-		// debounce(() => setCode((prev) => value));
-	};
 
-	const handleEditorDidMount = (editor, monaco) => {
-		// console.log("onMount: the editor instance:", editor);
-		// console.log("onMount: the monaco instance:", monaco);
-	};
-
-	const handleEditorWillMount = (monaco) => {
-		monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions({
-			...monaco.languages.typescript.javascriptDefaults.getDiagnosticsOptions(),
-			noSemanticValidation: true,
-			noSuggestionDiagnostics: false,
-			noSyntaxValidation: false,
-		});
-
-		monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
-			target: monaco.languages.typescript.ScriptTarget.ES2016,
-			allowNonTsExtensions: true,
-			moduleResolution: monaco.languages.typescript.ModuleResolutionKind.NodeJs,
-		});
-
-		monaco.languages.typescript.javascriptDefaults.addExtraLib(
-			globals,
-			"@types/p5/global.d.ts",
-		);
-
-		monaco.languages.typescript.javascriptDefaults.addExtraLib(
-			constants,
-			"@types/p5/constants.d.ts",
-		);
-		monaco.languages.typescript.javascriptDefaults.addExtraLib(
-			literals,
-			"@types/p5/literals.d.ts",
-		);
-
-		monaco.languages.typescript.javascriptDefaults.addExtraLib(
-			index,
-			"@types/p5/index.d.ts",
-		);
-		monaco.languages.typescript.javascriptDefaults.addExtraLib(
-			sound,
-			"@types/p5/lib/addons/p5.sound.d.ts",
-		);
-		monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
-			...monaco.languages.typescript.javascriptDefaults.getCompilerOptions(),
-			checkJs: true, // need this
-		});
-		// console.log("beforeMount: the monaco instance:", monaco);
-	};
-
-	function handleEditorValidation(markers) {
-		// model markers
-		// markers.forEach(marker => console.log('onValidate:', marker.message));
-	}
 	return (
-		<div className="sandbox">
-			{/* <div className="loading" data-loading>
+		<>
+			<RaycastCMDK
+				paletteIsOpen={paletteIsOpen}
+				setPaletteIsOpen={setPaletteIsOpen}
+			/>
+			<div className="sandbox">
+				{/* <div className="loading" data-loading>
 				<div className="loader"></div>
 				<h1>Loading P5.js Sandbox</h1>
 			</div> */}
-			<section className="code">
-				<Editor
-					height="100vh"
-					defaultLanguage="javascript"
-					theme="vs"
-					options={{
-						lineNumbers: "on",
+				<section className="code">
+					<Editor
+						height="100vh"
+						defaultLanguage="javascript"
+						theme="vs"
+						options={{
+							lineNumbers: "on",
 
-						wordWrap: "wordWrapColumn",
-						wordWrapColumn: 80,
-						roundedSelection: false,
-						scrollBeyondLastLine: false,
-						automaticLayout: true,
-						cursorStyle: "block",
-						cursorBlinking: "blink",
-						minimap: {
-							enabled: true,
-						},
-						fontFamily: "IBM Plex Mono, monospace",
-						fontSize: 18,
-						tabSize: 2,
-						accessibilitySupport: "on",
-					}}
-					defaultValue={code}
-					onChange={handleEditorChange}
-					onMount={handleEditorDidMount}
-					beforeMount={handleEditorWillMount}
-					onValidate={handleEditorValidation}
-					// @ts-ignore
-					client:only
-				/>
-			</section>
+							wordWrap: "wordWrapColumn",
+							wordWrapColumn: 80,
+							roundedSelection: false,
+							scrollBeyondLastLine: false,
+							automaticLayout: true,
+							cursorStyle: "block",
+							cursorBlinking: "blink",
+							minimap: {
+								enabled: true,
+							},
+							fontFamily: "IBM Plex Mono, monospace",
+							fontSize: 18,
+							tabSize: 2,
+							accessibilitySupport: "on",
+						}}
+						defaultValue={code}
+						onChange={(value, event) => {
+							debouncedSetCode(value);
+							// here is the current value
+							// debounce(() => setCode((prev) => value));
+						}}
+						onMount={(editor, monaco) => {
+							// console.log("onMount: the editor instance:", editor);
+							// console.log("onMount: the monaco instance:", monaco);
+							editor.addCommand(
+								monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyK,
+								function () {
+									console.log("comand/ctrl+k pressed");
+									setPaletteIsOpen((open) => !open);
+								},
+							);
+						}}
+						beforeMount={(monaco) => {
+							monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions(
+								{
+									...monaco.languages.typescript.javascriptDefaults.getDiagnosticsOptions(),
+									noSemanticValidation: true,
+									noSuggestionDiagnostics: false,
+									noSyntaxValidation: false,
+								},
+							);
 
-			<section className="result">
-				<div className="output">
-					<iframe ref={iframeRef} data-iframe></iframe>
-				</div>
-			</section>
-		</div>
+							monaco.languages.typescript.typescriptDefaults.setCompilerOptions(
+								{
+									target: monaco.languages.typescript.ScriptTarget.ES2016,
+									allowNonTsExtensions: true,
+									moduleResolution:
+										monaco.languages.typescript.ModuleResolutionKind.NodeJs,
+								},
+							);
+
+							monaco.languages.typescript.javascriptDefaults.addExtraLib(
+								globals,
+								"@types/p5/global.d.ts",
+							);
+
+							monaco.languages.typescript.javascriptDefaults.addExtraLib(
+								constants,
+								"@types/p5/constants.d.ts",
+							);
+							monaco.languages.typescript.javascriptDefaults.addExtraLib(
+								literals,
+								"@types/p5/literals.d.ts",
+							);
+
+							monaco.languages.typescript.javascriptDefaults.addExtraLib(
+								index,
+								"@types/p5/index.d.ts",
+							);
+							monaco.languages.typescript.javascriptDefaults.addExtraLib(
+								sound,
+								"@types/p5/lib/addons/p5.sound.d.ts",
+							);
+							monaco.languages.typescript.javascriptDefaults.setCompilerOptions(
+								{
+									...monaco.languages.typescript.javascriptDefaults.getCompilerOptions(),
+									checkJs: true, // need this
+								},
+							);
+
+							// console.log("beforeMount: the monaco instance:", monaco);
+						}}
+						onValidate={(markers) => {
+							// model markers
+							// markers.forEach(marker => console.log('onValidate:', marker.message));
+						}}
+						// @ts-ignore
+						client:only
+					/>
+				</section>
+
+				<section className="result">
+					<div className="output">
+						<iframe ref={iframeRef} data-iframe></iframe>
+					</div>
+				</section>
+			</div>
+		</>
 	);
 }
