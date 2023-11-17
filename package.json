@@ -31,7 +31,7 @@
 		"typescript": "5.2.2"
 	},
 	"devDependencies": {
-		"@playwright/test": "1.39.0",
+		"@playwright/test": "1.40.0",
 		"@technologiestiftung/semantic-release-config": "1.2.4",
 		"@testing-library/react": "14.1.0",
 		"@types/lodash.debounce": "4.0.9",
