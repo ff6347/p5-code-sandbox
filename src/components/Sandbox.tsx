@@ -2,6 +2,9 @@ import debounce from "lodash.debounce";
 import React from "react";
 import "./sandox.css";
 
+import * as prettier from "prettier/standalone";
+import parserBabel from "prettier/plugins/babel";
+import * as prettierPluginEstree from "prettier/plugins/estree";
 import Editor from "@monaco-editor/react";
 //@ts-ignore
 import globals from "@types/p5/global.d.ts?raw";
@@ -61,6 +64,21 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 	};
 
 	const handleEditorWillMount = (monaco) => {
+		monaco.languages.registerDocumentFormattingEditProvider("javascript", {
+			provideDocumentFormattingEdits: async (model) => {
+				const text = await prettier.format(model.getValue(), {
+					parser: "babel",
+					plugins: [parserBabel, prettierPluginEstree],
+				});
+				return [
+					{
+						range: model.getFullModelRange(),
+						text,
+					},
+				];
+			},
+		});
+
 		monaco.languages.typescript.javascriptDefaults.setDiagnosticsOptions({
 			...monaco.languages.typescript.javascriptDefaults.getDiagnosticsOptions(),
 			noSemanticValidation: true,
@@ -120,13 +138,14 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 					theme="vs"
 					options={{
 						lineNumbers: "on",
-
+						formatOnPaste: true,
 						wordWrap: "wordWrapColumn",
 						wordWrapColumn: 80,
 						roundedSelection: false,
 						scrollBeyondLastLine: false,
 						automaticLayout: true,
-						cursorStyle: "block",
+						cursorStyle: "line",
+						fontLigatures: true,
 						cursorBlinking: "blink",
 						minimap: {
 							enabled: true,
@@ -134,6 +153,8 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 						fontFamily: "IBM Plex Mono, monospace",
 						fontSize: 18,
 						tabSize: 2,
+						insertSpaces: false,
+						rulers: [80],
 						accessibilitySupport: "on",
 					}}
 					defaultValue={code}
