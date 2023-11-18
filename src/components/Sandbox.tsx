@@ -5,7 +5,12 @@ import "./sandox.css";
 import * as prettier from "prettier/standalone";
 import parserBabel from "prettier/plugins/babel";
 import * as prettierPluginEstree from "prettier/plugins/estree";
-import Editor from "@monaco-editor/react";
+import {
+	Editor,
+	type BeforeMount,
+	type OnChange,
+	type OnMount,
+} from "@monaco-editor/react";
 //@ts-ignore
 import globals from "@types/p5/global.d.ts?raw";
 //@ts-ignore
@@ -18,6 +23,7 @@ import literals from "@types/p5/literals.d.ts?raw";
 import sound from "@types/p5/lib/addons/p5.sound.d.ts?raw";
 import { useLocalStorage } from "../hooks/use-local-storage";
 import { iframeSource } from "../lib/iframe-source";
+
 interface SandboxProps {
 	title: string;
 	description: string;
@@ -52,22 +58,30 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 			}
 		}
 	}, [code]);
-	const handleEditorChange = (value, event) => {
+	const handleEditorChange: OnChange = (value, event) => {
 		debouncedSetCode(value);
 		// here is the current value
 		// debounce(() => setCode((prev) => value));
 	};
 
-	const handleEditorDidMount = (editor, monaco) => {
+	const handleEditorDidMount: OnMount = (editor, monaco) => {
 		// console.log("onMount: the editor instance:", editor);
 		// console.log("onMount: the monaco instance:", monaco);
 	};
 
-	const handleEditorWillMount = (monaco) => {
+	const handleEditorWillMount: BeforeMount = (monaco) => {
 		monaco.languages.registerDocumentFormattingEditProvider("javascript", {
 			provideDocumentFormattingEdits: async (model) => {
 				const text = await prettier.format(model.getValue(), {
 					parser: "babel",
+					printWidth: 50,
+					useTabs: true,
+					proseWrap: "always",
+					semi: true,
+					singleQuote: true,
+					trailingComma: "es5",
+					bracketSpacing: true,
+					singleAttributePerLine: true,
 					plugins: [parserBabel, prettierPluginEstree],
 				});
 				return [
@@ -87,16 +101,20 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 		});
 
 		monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
+			checkJs: true,
+			allowJs: true,
+			alwaysStrict: true,
 			target: monaco.languages.typescript.ScriptTarget.ES2016,
 			allowNonTsExtensions: true,
 			moduleResolution: monaco.languages.typescript.ModuleResolutionKind.NodeJs,
 		});
-
+		const opts =
+			monaco.languages.typescript.typescriptDefaults.getCompilerOptions();
+		monaco.languages.typescript.javascriptDefaults.setCompilerOptions(opts);
 		monaco.languages.typescript.javascriptDefaults.addExtraLib(
 			globals,
 			"@types/p5/global.d.ts",
 		);
-
 		monaco.languages.typescript.javascriptDefaults.addExtraLib(
 			constants,
 			"@types/p5/constants.d.ts",
@@ -105,7 +123,6 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 			literals,
 			"@types/p5/literals.d.ts",
 		);
-
 		monaco.languages.typescript.javascriptDefaults.addExtraLib(
 			index,
 			"@types/p5/index.d.ts",
@@ -116,7 +133,6 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 		);
 		monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
 			...monaco.languages.typescript.javascriptDefaults.getCompilerOptions(),
-			checkJs: true, // need this
 		});
 		// console.log("beforeMount: the monaco instance:", monaco);
 	};
@@ -140,7 +156,7 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 						lineNumbers: "on",
 						formatOnPaste: true,
 						wordWrap: "wordWrapColumn",
-						wordWrapColumn: 80,
+						wordWrapColumn: 50,
 						roundedSelection: false,
 						scrollBeyondLastLine: false,
 						automaticLayout: true,
@@ -154,7 +170,7 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 						fontSize: 18,
 						tabSize: 2,
 						insertSpaces: false,
-						rulers: [80],
+						rulers: [50],
 						accessibilitySupport: "on",
 					}}
 					defaultValue={code}
