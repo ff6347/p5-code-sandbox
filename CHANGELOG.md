@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/ff6347/p5-code-sandbox/compare/v1.2.0...v1.3.0) (2023-11-18)
+
+
+### Features
+
+* **formatter:** et default opts for prettier ([7ea71a9](https://github.com/ff6347/p5-code-sandbox/commit/7ea71a9b0902be7f35a978827ab44f0643d6d1c0))
+* **formatter:** Use prettier as default formater ([757d03f](https://github.com/ff6347/p5-code-sandbox/commit/757d03fafaeb41ea514cbd9dde2e28391f7cfd50))
+
 # [1.2.0](https://github.com/ff6347/p5-code-sandbox/compare/v1.1.1...v1.2.0) (2023-11-11)
 
 
