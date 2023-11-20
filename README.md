@@ -1,16 +1,27 @@
 # P5 Code Sandbox
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Small experiment to have a code sandbox for testing p5.js code. Based on [this blog](https://joyofcode.xyz/create-a-coding-sandbox) post "Create a JavaScript Code Sandbox" by Matija.
+![](docs/assets/p5-code-sandbox.png)
+
+Experiment to have a code sandbox powered by Monaco editor for testing p5.js code. Based on [this blog](https://joyofcode.xyz/create-a-coding-sandbox) post "Create a JavaScript Code Sandbox" by Matija.
 The idea is to be able to build a documentation page for sketches produced during seminars, like in my seminar [gestalten-in-code](https://interface.fh-potsdam.de/gestalten-in-code/) but have all the sketches editable in the sandbox.
+
+**See a demo over at [p5.inpyjamas.dev](https://p5.inpyjamas.dev/)**
+
+## Features
 
 Current feature set is limited but it can:
 
 - Save changes to local storage
 - Control via component prop if changes should be saved to local storage
 - Control via URL SearchParameters if the local storage should be disabled
+- Format using Prettier
+- All the great features Monaco has.
 
 See [@ff6347 p5js code sandbox project for planned features](https://github.com/users/ff6347/projects/2/views/1)
 
