@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/ff6347/p5-code-sandbox/compare/v1.3.0...v1.4.0) (2023-11-22)
+
+
+### Features
+
+* **startercode:** Add new starter code ([e1942de](https://github.com/ff6347/p5-code-sandbox/commit/e1942de6e31440afe741b07e9f4aa5bc7a107774))
+
 # [1.3.0](https://github.com/ff6347/p5-code-sandbox/compare/v1.2.0...v1.3.0) (2023-11-18)
 
 
