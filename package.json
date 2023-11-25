@@ -1,7 +1,7 @@
 {
 	"name": "@ff6347/p5-sandbox",
 	"private": true,
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"type": "module",
 	"scripts": {
 		"copy:p5": "mkdirp ./public/lib && shx cp -r ./node_modules/p5/lib ./public/",

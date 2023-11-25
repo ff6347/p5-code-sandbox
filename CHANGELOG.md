@@ -1,3 +1,13 @@
+## [1.4.1](https://github.com/ff6347/p5-code-sandbox/compare/v1.4.0...v1.4.1) (2023-11-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @astrojs/react to v3.0.6 ([38e9f8a](https://github.com/ff6347/p5-code-sandbox/commit/38e9f8a7ab3d8baf5a176fa0240ba10190d07cb1))
+* **deps:** update dependency @types/p5 to v1.7.4 ([7f7fa96](https://github.com/ff6347/p5-code-sandbox/commit/7f7fa965b812b4dcb05053c2dbb6b3dc656d96b1))
+* **deps:** update dependency astro to v3.6.0 ([a86caef](https://github.com/ff6347/p5-code-sandbox/commit/a86caef1dfbf1f670c37685208a5236f59668105))
+* **deps:** update dependency typescript to v5.3.2 ([22ca5cd](https://github.com/ff6347/p5-code-sandbox/commit/22ca5cd05f82db202e6206512e76dc94305656ac))
+
 # [1.4.0](https://github.com/ff6347/p5-code-sandbox/compare/v1.3.0...v1.4.0) (2023-11-22)
 
 
