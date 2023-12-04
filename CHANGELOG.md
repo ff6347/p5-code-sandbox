@@ -1,3 +1,11 @@
+## [1.4.3](https://github.com/ff6347/p5-code-sandbox/compare/v1.4.2...v1.4.3) (2023-12-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency astro to v3.6.4 ([6e7c628](https://github.com/ff6347/p5-code-sandbox/commit/6e7c628ab8c47bc402feb8c3124fe1edc3ad4f26))
+* **deps:** update dependency p5 to v1.9.0 ([1565985](https://github.com/ff6347/p5-code-sandbox/commit/1565985db28d85ed3cf0b5b55cbb5cef48bf59ca))
+
 ## [1.4.2](https://github.com/ff6347/p5-code-sandbox/compare/v1.4.1...v1.4.2) (2023-11-29)
 
 
