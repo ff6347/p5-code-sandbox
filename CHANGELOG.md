@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/ff6347/p5-code-sandbox/compare/v1.4.3...v1.4.4) (2023-12-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @astrojs/react to v3.0.7 ([176b754](https://github.com/ff6347/p5-code-sandbox/commit/176b754ce236cbcb8434923b62375b77e738a785))
+
 ## [1.4.3](https://github.com/ff6347/p5-code-sandbox/compare/v1.4.2...v1.4.3) (2023-12-04)
 
 
