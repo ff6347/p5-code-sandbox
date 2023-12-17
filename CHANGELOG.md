@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/ff6347/p5-code-sandbox/compare/v1.4.4...v1.4.5) (2023-12-17)
+
+
+### Bug Fixes
+
+* **mobile:** Add background on small screens ([8630b72](https://github.com/ff6347/p5-code-sandbox/commit/8630b721dfd75772b079bd243653b45f6c946ec9))
+
 ## [1.4.4](https://github.com/ff6347/p5-code-sandbox/compare/v1.4.3...v1.4.4) (2023-12-06)
 
 
