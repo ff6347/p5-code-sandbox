@@ -36,11 +36,11 @@
 		"@technologiestiftung/semantic-release-config": "1.2.4",
 		"@testing-library/react": "14.1.2",
 		"@types/lodash.debounce": "4.0.9",
-		"@types/node": "20.10.0",
+		"@types/node": "20.10.5",
 		"jsdom": "23.0.1",
 		"mkdirp": "3.0.1",
-		"netlify-cli": "17.8.1",
+		"netlify-cli": "17.10.1",
 		"shx": "0.3.4",
-		"vitest": "1.0.0"
+		"vitest": "1.0.4"
 	}
 }
