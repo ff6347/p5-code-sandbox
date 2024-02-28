@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "copy:p5": "mkdirp ./public/lib && shx cp -r ./node_modules/p5/lib ./public/",
-    "dev": "export PUBLIC_BASE_URL=$DEPLOY_URL && astro dev",
-    "start": "export PUBLIC_BASE_URL=$DEPLOY_URL && astro dev",
+    "dev": "export PUBLIC_BASE_URL=$CF_PAGES_URL && astro dev",
+    "start": "export PUBLIC_BASE_URL=$CF_PAGES_URL && astro dev",
     "prebuild": "npm run copy:p5",
     "postinstall": "npm run copy:p5",
-    "build": "export PUBLIC_BASE_URL=$DEPLOY_URL && astro build",
+    "build": "export PUBLIC_BASE_URL=$CF_PAGES_URL && astro build",
+    "build:netlify": "export PUBLIC_BASE_URL=$DEPLOY_URL && astro build",
+
     "check": "astro check",
     "preview": "astro preview",
     "astro": "astro",
