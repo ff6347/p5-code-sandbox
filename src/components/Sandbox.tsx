@@ -174,7 +174,7 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 						scrollBeyondLastLine: false,
 						automaticLayout: true,
 						cursorStyle: "line",
-						fontLigatures: true,
+						fontLigatures: false,
 						cursorBlinking: "blink",
 						minimap: {
 							enabled: true,
