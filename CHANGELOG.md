@@ -1,3 +1,10 @@
+## [1.4.6](https://github.com/ff6347/p5-code-sandbox/compare/v1.4.5...v1.4.6) (2024-03-10)
+
+
+### Bug Fixes
+
+* Disable font ligatures ([2685b98](https://github.com/ff6347/p5-code-sandbox/commit/2685b9834735bb71d0fc787c6f976c7649d57b83))
+
 ## [1.4.5](https://github.com/ff6347/p5-code-sandbox/compare/v1.4.4...v1.4.5) (2023-12-17)
 
 ### Bug Fixes
