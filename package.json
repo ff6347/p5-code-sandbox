@@ -38,7 +38,7 @@
 		"@testing-library/react": "14.2.2",
 		"@types/lodash.debounce": "4.0.9",
 		"@types/node": "20.11.30",
-		"jsdom": "23.2.0",
+		"jsdom": "24.0.0",
 		"mkdirp": "3.0.1",
 		"netlify-cli": "17.20.1",
 		"shx": "0.3.4",
