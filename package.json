@@ -33,14 +33,14 @@
 		"typescript": "5.3.3"
 	},
 	"devDependencies": {
-		"@playwright/test": "1.42.1",
+		"@playwright/test": "1.43.0",
 		"@technologiestiftung/semantic-release-config": "1.2.4",
 		"@testing-library/react": "14.2.2",
 		"@types/lodash.debounce": "4.0.9",
-		"@types/node": "20.11.30",
+		"@types/node": "20.12.5",
 		"jsdom": "23.2.0",
 		"mkdirp": "3.0.1",
-		"netlify-cli": "17.20.1",
+		"netlify-cli": "17.21.2",
 		"shx": "0.3.4",
 		"vitest": "1.4.0"
 	},
