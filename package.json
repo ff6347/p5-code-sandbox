@@ -37,12 +37,12 @@
 		"@technologiestiftung/semantic-release-config": "1.2.4",
 		"@testing-library/react": "14.3.1",
 		"@types/lodash.debounce": "4.0.9",
-		"@types/node": "20.12.7",
+		"@types/node": "20.12.8",
 		"jsdom": "23.2.0",
 		"mkdirp": "3.0.1",
-		"netlify-cli": "17.22.1",
+		"netlify-cli": "17.23.1",
 		"shx": "0.3.4",
-		"vitest": "1.5.0"
+		"vitest": "1.6.0"
 	},
 	"prettier": {
 		"tabWidth": 2,
