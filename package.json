@@ -33,16 +33,16 @@
 		"typescript": "5.3.3"
 	},
 	"devDependencies": {
-		"@playwright/test": "1.45.3",
+		"@playwright/test": "1.46.0",
 		"@technologiestiftung/semantic-release-config": "1.2.4",
 		"@testing-library/react": "16.0.0",
 		"@types/lodash.debounce": "4.0.9",
-		"@types/node": "20.14.13",
+		"@types/node": "20.14.15",
 		"jsdom": "24.1.1",
 		"mkdirp": "3.0.1",
-		"netlify-cli": "17.33.4",
+		"netlify-cli": "17.34.0",
 		"shx": "0.3.4",
-		"vitest": "2.0.4"
+		"vitest": "2.0.5"
 	},
 	"prettier": {
 		"tabWidth": 2,
