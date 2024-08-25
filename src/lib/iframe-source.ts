@@ -1,10 +1,10 @@
-export function iframeSource(code: string) {
+export function iframeSource(code: string, baseUrl: string) {
 	return /* html */ `
 	<!DOCTYPE html>
 		<html>
 			<head>
 				<link rel="stylesheet" href="/iframe.css">
-				<script src="${import.meta.env.PUBLIC_BASE_URL}/lib/p5.js"></script>
+				<script src="${baseUrl}/lib/p5.js"></script>
 
 				<style>
 		body {
