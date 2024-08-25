@@ -32,7 +32,8 @@
 		"prettier": "3.1.1",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"typescript": "5.3.3"
+		"typescript": "5.3.3",
+		"workbox-window": "7.1.0"
 	},
 	"devDependencies": {
 		"@playwright/test": "1.46.0",
@@ -41,6 +42,7 @@
 		"@types/babel__standalone": "7.1.7",
 		"@types/lodash.debounce": "4.0.9",
 		"@types/node": "20.14.15",
+		"@vite-pwa/astro": "0.4.0",
 		"jsdom": "24.1.1",
 		"mkdirp": "3.0.1",
 		"netlify-cli": "17.34.0",
