@@ -55,8 +55,6 @@ const pwa = AstroPWA({
 		directoryAndTrailingSlashHandler: true,
 	},
 });
-
-console.log(pwa);
 export default defineConfig({
 	// test if we are in a test env
 	// currently it seems that in the vite pwa integration
