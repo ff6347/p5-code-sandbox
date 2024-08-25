@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/ff6347/p5-code-sandbox/compare/v1.5.0...v1.6.0) (2024-08-25)
+
+
+### Features
+
+* **PWA:** Works offline ([113f8cc](https://github.com/ff6347/p5-code-sandbox/commit/113f8cc1654771072e3093ffa76fe49cfecf814c))
+
 # [1.5.0](https://github.com/ff6347/p5-code-sandbox/compare/v1.4.6...v1.5.0) (2024-08-25)
 
 
