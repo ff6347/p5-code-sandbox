@@ -1,3 +1,11 @@
+# [1.5.0](https://github.com/ff6347/p5-code-sandbox/compare/v1.4.6...v1.5.0) (2024-08-25)
+
+
+### Features
+
+* **iframe origin:** Take origin from URL ([30132ea](https://github.com/ff6347/p5-code-sandbox/commit/30132ea201b3d110c6358bec17de3554c3559342))
+* **loop protect:** Prevent infinite loops ([211a94a](https://github.com/ff6347/p5-code-sandbox/commit/211a94a8a6bc73b324e6ddc8400062d840fbe67f))
+
 ## [1.4.6](https://github.com/ff6347/p5-code-sandbox/compare/v1.4.5...v1.4.6) (2024-03-10)
 
 
