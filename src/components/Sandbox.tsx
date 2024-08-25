@@ -1,6 +1,20 @@
 import debounce from "lodash.debounce";
 import React from "react";
 import "./sandox.css";
+import * as Babel from "@babel/standalone";
+import protect from "@freecodecamp/loop-protect";
+
+const timeout = 100;
+Babel.registerPlugin(
+	"loopProtect",
+	protect(timeout, (line: number) => {
+		throw new Error(`Bad infinite loop on line ${line}`);
+	}),
+);
+const transform = (source: string) =>
+	Babel.transform(source, {
+		plugins: ["loopProtect"],
+	}).code;
 
 import * as prettier from "prettier/standalone";
 import parserBabel from "prettier/plugins/babel";
@@ -37,6 +51,7 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 	const [viewportHeight, setViewportHeight] = React.useState(
 		window.innerHeight,
 	);
+	const baseUrl = new URL(window.location.href);
 
 	const [code, setCode] = useLocalStorage(
 		"p5.inpayjamas.dev",
@@ -59,15 +74,22 @@ export default function Sandbox({ disableStorage, initialCode }: SandboxProps) {
 		if (iframeRef.current) {
 			const iframe = iframeRef.current;
 
-			const source = iframeSource(code);
-			const iframeParent = iframe.parentElement;
+			// do the inifite loop protection
 
-			if (iframeParent) {
-				iframeParent.removeChild(iframe);
-				const blob = new Blob([source], { type: "text/html" });
-				const blobUrl = URL.createObjectURL(blob);
-				iframe.src = blobUrl;
-				iframeParent.appendChild(iframe);
+			try {
+				const protectedCode = transform(code);
+				const source = iframeSource(protectedCode, baseUrl.origin);
+				const iframeParent = iframe.parentElement;
+
+				if (iframeParent) {
+					iframeParent.removeChild(iframe);
+					const blob = new Blob([source], { type: "text/html" });
+					const blobUrl = URL.createObjectURL(blob);
+					iframe.src = blobUrl;
+					iframeParent.appendChild(iframe);
+				}
+			} catch (e) {
+				console.error(e);
 			}
 		}
 	}, [code]);
