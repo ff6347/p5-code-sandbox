@@ -116,6 +116,7 @@ out
 .netlify
 # build output
 dist/
+dev-dist/
 # generated types
 .astro/
 # dependencies
@@ -127,3 +128,4 @@ dist/
 /blob-report/
 /playwright/.cache/
 tests-examples/demo-todo-app.spec.ts
+
