@@ -46,6 +46,8 @@ const pwa = AstroPWA({
 	workbox: {
 		navigateFallback: "/",
 		globPatterns: ["**/*.{css,js,html,svg,png,ico,txt}"],
+
+		maximumFileSizeToCacheInBytes: 5000000,
 	},
 	devOptions: {
 		enabled: true,
