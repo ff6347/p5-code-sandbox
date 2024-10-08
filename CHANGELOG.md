@@ -1,3 +1,11 @@
+## [1.6.1](https://github.com/ff6347/p5-code-sandbox/compare/v1.6.0...v1.6.1) (2024-10-08)
+
+
+### Bug Fixes
+
+* Don't include unminified p5 lib into build ([d5c541f](https://github.com/ff6347/p5-code-sandbox/commit/d5c541f87ed8c7dc644b28eb4e71c4d81b3b5a46))
+* Remove p5.js from lib ([3b240f1](https://github.com/ff6347/p5-code-sandbox/commit/3b240f14feeeb4610fd255074e6c956180bedacc))
+
 # [1.6.0](https://github.com/ff6347/p5-code-sandbox/compare/v1.5.0...v1.6.0) (2024-08-25)
 
 

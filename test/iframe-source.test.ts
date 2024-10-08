@@ -27,7 +27,7 @@ test("iframeSource includes necessary HTML tags", () => {
 	expect(result).toContain("</body>");
 	expect(result).toContain('<div id="sketch">');
 	expect(result).toContain("</div>");
-	expect(result).toContain(`<script src="${url}/lib/p5.js">`);
+	expect(result).toContain(`<script src="${url}/lib/p5.min.js">`);
 	expect(result).toContain("</script>");
 	expect(result).toContain("<script defer>");
 	expect(result).toContain("</script>");
