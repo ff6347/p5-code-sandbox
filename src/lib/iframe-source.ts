@@ -4,7 +4,7 @@ export function iframeSource(code: string, baseUrl: string) {
 		<html>
 			<head>
 				<link rel="stylesheet" href="/iframe.css">
-				<script src="${baseUrl}/lib/p5.js"></script>
+				<script src="${baseUrl}/lib/p5.min.js"></script>
 
 				<style>
 		body {

@@ -12,7 +12,7 @@ const pwa = AstroPWA({
 		"favicon.svg",
 		"p5-sandbox-icon-192x192.png",
 		"p5-sandbox-icon-512x512.png",
-		"lib/p5.js",
+		// "lib/p5.js",
 		"lib/p5.min.js",
 		"lib/addons/p5.sound.js",
 		"lib/addons/p5.sound.min.js",
