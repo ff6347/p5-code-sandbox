@@ -1,7 +1,7 @@
 {
 	"name": "@ff6347/p5-sandbox",
 	"private": true,
-	"version": "1.6.0",
+	"version": "1.6.1",
 	"type": "module",
 	"scripts": {
 		"copy:p5": "mkdirp ./public/lib && mkdirp ./public/lib/addons && node ./scripts/copy-p5.mjs",
