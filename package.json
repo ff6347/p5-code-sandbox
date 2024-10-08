@@ -46,7 +46,6 @@
 		"jsdom": "25.0.0",
 		"mkdirp": "3.0.1",
 		"netlify-cli": "17.35.0",
-		"shx": "0.3.4",
 		"vitest": "2.0.5"
 	},
 	"prettier": {
