@@ -4,7 +4,7 @@
 	"version": "1.6.0",
 	"type": "module",
 	"scripts": {
-		"copy:p5": "mkdirp ./public/lib && shx cp -r ./node_modules/p5/lib ./public/",
+		"copy:p5": "mkdirp ./public/lib && mkdirp ./public/lib/addons && node ./scripts/copy-p5.mjs",
 		"dev": "export PUBLIC_BASE_URL=$CF_PAGES_URL && astro dev",
 		"start": "export PUBLIC_BASE_URL=$CF_PAGES_URL && astro dev",
 		"prebuild": "npm run copy:p5",
