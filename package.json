@@ -36,17 +36,17 @@
 		"workbox-window": "7.1.0"
 	},
 	"devDependencies": {
-		"@playwright/test": "1.50.0",
+		"@playwright/test": "1.50.1",
 		"@technologiestiftung/semantic-release-config": "1.2.4",
 		"@testing-library/react": "16.2.0",
 		"@types/babel__standalone": "7.1.9",
 		"@types/lodash.debounce": "4.0.9",
-		"@types/node": "22.10.10",
+		"@types/node": "22.13.1",
 		"@vite-pwa/astro": "0.5.0",
 		"jsdom": "26.0.0",
 		"mkdirp": "3.0.1",
-		"netlify-cli": "18.0.2",
-		"vitest": "2.1.8"
+		"netlify-cli": "18.0.4",
+		"vitest": "2.1.9"
 	},
 	"prettier": {
 		"tabWidth": 2,
