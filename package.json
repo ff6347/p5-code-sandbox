@@ -46,7 +46,7 @@
 		"jsdom": "26.0.0",
 		"mkdirp": "3.0.1",
 		"netlify-cli": "18.0.4",
-		"vitest": "2.1.9"
+		"vitest": "3.0.6"
 	},
 	"prettier": {
 		"tabWidth": 2,
