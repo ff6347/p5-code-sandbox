@@ -36,12 +36,12 @@
 		"workbox-window": "7.1.0"
 	},
 	"devDependencies": {
-		"@playwright/test": "1.51.0",
+		"@playwright/test": "1.51.1",
 		"@technologiestiftung/semantic-release-config": "1.2.4",
 		"@testing-library/react": "16.2.0",
 		"@types/babel__standalone": "7.1.9",
 		"@types/lodash.debounce": "4.0.9",
-		"@types/node": "22.13.10",
+		"@types/node": "22.13.11",
 		"@vite-pwa/astro": "0.5.0",
 		"jsdom": "26.0.0",
 		"mkdirp": "3.0.1",
