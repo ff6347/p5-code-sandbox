@@ -36,7 +36,7 @@
 		"workbox-window": "7.1.0"
 	},
 	"devDependencies": {
-		"@playwright/test": "1.56.1",
+		"@playwright/test": "1.57.0",
 		"@technologiestiftung/semantic-release-config": "1.2.4",
 		"@testing-library/react": "16.3.0",
 		"@types/babel__standalone": "7.1.9",
