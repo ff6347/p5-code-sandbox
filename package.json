@@ -41,12 +41,12 @@
 		"@testing-library/react": "16.3.2",
 		"@types/babel__standalone": "7.1.9",
 		"@types/lodash.debounce": "4.0.9",
-		"@types/node": "22.19.7",
-		"@vite-pwa/astro": "0.5.1",
-		"jsdom": "26.1.0",
+		"@types/node": "24.10.9",
+		"@vite-pwa/astro": "1.2.0",
+		"jsdom": "27.4.0",
 		"mkdirp": "3.0.1",
-		"netlify-cli": "18.1.0",
-		"vitest": "2.1.9"
+		"netlify-cli": "23.14.0",
+		"vitest": "4.0.18"
 	},
 	"prettier": {
 		"tabWidth": 2,
